@@ -1,0 +1,15 @@
+open(URL)
+move(class,"abc")
+click(p,id,"aaa")
+capturew=auto h=auto /tmp/NAME
+when exist class "abc" then click p "a" otherwise move "avc"
+
+
+# https://qiita.com/VA_nakatsu/items/0095755dc48ad7e86e2f
+
+# id
+driver.findElement(By.id("service_category_cloud_Expert")).click();
+# name
+driver.findElement(By.name("Submit")).click();
+# class
+driver.findElement(By.className("btn_next")).click();

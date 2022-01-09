@@ -1,0 +1,15 @@
+?start: statement+
+
+?statement: open_call | click_call | move_call
+
+open_call: "open" "(URL)"
+click_call: "click" "(" string ")"
+move_call: "move" "(" string ")"
+
+string    : ESCAPED_STRING
+symbol    : WORD
+
+%import common.ESCAPED_STRING
+%import common.WORD
+%import common.WS
+%ignore WS

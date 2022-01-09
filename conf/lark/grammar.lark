@@ -1,0 +1,20 @@
+?start: statement+
+
+?statement: open_call
+    | click_class_call
+    | move_class_call
+    | capture_by_screen
+
+open_call: "open"
+click_class_call: "click_class" "(" string ")"
+move_class_call: "move_class_call" "(" string ")"
+capture_by_screen: "capture_by_screen"
+
+
+string    : ESCAPED_STRING
+symbol    : WORD
+
+%import common.ESCAPED_STRING
+%import common.WORD
+%import common.WS
+%ignore WS
