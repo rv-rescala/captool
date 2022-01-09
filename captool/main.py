@@ -4,6 +4,7 @@ from catswalk.scraping.types.type_webdriver import *
 from captool.order import *
 import json
 import csv
+import os
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='cp tool')
@@ -26,6 +27,9 @@ if __name__ == "__main__":
         executable_path = j["executable_path"]
         execution_env = EXECUTION_ENV.str_to_enum(j["execution_env"])
         output_path = j["output_path"]
+        debug = j["debug"]
+        if debug:
+            print("debug mode")
 
     # order specific setting
     with open(conf_tool_specific, "r") as f:
@@ -37,11 +41,10 @@ if __name__ == "__main__":
         reader = csv.DictReader(f)
         input_list =  [row for row in reader]
     
-
-    #request = CWWebDriver(binary_location=binary_location, executable_path=executable_path, execution_env=execution_env,  device = device)
-    request = None
-    path_list = [execute(request=request, grammar_path=conf_lark, order_path=conf_order, url=i["url"],output_path=output_path, filename=i["filename"]) for i in input_list]
-    #request.close()
+    request = CWWebDriver(binary_location=binary_location, executable_path=executable_path, execution_env=execution_env,  device=device, debug=debug)
+    #request = None
+    path_list = [execute(request=request, order_name=args.order, grammar_path=conf_lark, order_path=conf_order, url=i["url"],output_path=output_path, filename=i["filename"]) for i in input_list]
+    request.close()
     print(path_list)
 
     #request.close

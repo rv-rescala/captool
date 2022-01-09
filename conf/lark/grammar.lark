@@ -1,13 +1,13 @@
 ?start: statement+
 
 ?statement: open_call
-    | click_class_call
-    | move_class_call
+    | click_by_class
+    | move_by_class
     | capture_by_screen
 
 open_call: "open"
-click_class_call: "click_class" "(" string ")"
-move_class_call: "move_class_call" "(" string ")"
+click_by_class: "click_by_class" "(" string ")"
+move_by_class: "move_by_class" "(" string ")"
 capture_by_screen: "capture_by_screen"
 
 
