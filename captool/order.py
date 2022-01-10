@@ -45,5 +45,6 @@ def execute(request: CWWebDriver, order_name: str, grammar_path: str, order_path
     parser = Lark(rule, parser='lalr', transformer=Main())
     program = open(order_path).read()
     r = parser.parse(program)
-    print(list(r.children))
-    return None
+    fullpath = list(r.children)[-1]
+    print(r)
+    return fullpath

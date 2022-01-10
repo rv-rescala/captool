@@ -38,12 +38,13 @@ if __name__ == "__main__":
 
     # url_path_list
     with open(conf_url, "r") as f:
-        reader = csv.DictReader(f)
+        reader = csv.reader(f)
         input_list =  [row for row in reader]
-    
+    print(input_list)
+
     request = CWWebDriver(binary_location=binary_location, executable_path=executable_path, execution_env=execution_env,  device=device, debug=debug)
     #request = None
-    path_list = [execute(request=request, order_name=args.order, grammar_path=conf_lark, order_path=conf_order, url=i["url"],output_path=output_path, filename=i["filename"]) for i in input_list]
+    path_list = [execute(request=request, order_name=args.order, grammar_path=conf_lark, order_path=conf_order, url=i[0],output_path=output_path, filename=i[1]) for i in input_list]
     request.close()
     print(path_list)
 
