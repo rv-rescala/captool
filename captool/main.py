@@ -8,16 +8,17 @@ import os
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='cp tool')
-    parser.add_argument('conf', help='conf')
     parser.add_argument('order', help='order')
+    parser.add_argument('conf', help='conf')
+    parser.add_argument('dataset', help='dataset')
     args = parser.parse_args()
     print(args)
 
-    conf_tool_common = f"{args.conf}/tool/common.json"
-    conf_tool_specific = f"{args.conf}/tool/{args.order}.json"
-    conf_url = f"{args.conf}/url/{args.order}.csv"
-    conf_order = f"{args.conf}/order/{args.order}.od"
-    conf_lark = f"{args.conf}/lark/grammar.lark"
+    conf_tool_common = f"{args.conf}/common/browser.json"
+    conf_tool_specific = f"{args.conf}/order/{args.order}/browser.json"
+    conf_url = f"{args.dataset}/input/{args.order}.csv"
+    conf_order = f"{args.conf}/order/{args.order}/command.od"
+    conf_lark = f"{args.conf}/common/grammar.lark"
     print(f"conf_tool_common: {conf_tool_common}, conf_tool_specific: {conf_tool_specific},conf_url: {conf_url},conf_order: {conf_order},conf_lark: {conf_lark}")
     
     # common setting

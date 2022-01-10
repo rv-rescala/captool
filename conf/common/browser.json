@@ -2,6 +2,6 @@
     "binary_location": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     "executable_path": "/Users/rv/ws/tools/chromedriver",
     "execution_env": "local_headless",
-    "output_path": "/Users/rv/ws/python/cptool/output",
+    "output_path": "/Users/rv/ws/python/cptool/dataset/output",
     "debug": false
 }
