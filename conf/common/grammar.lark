@@ -1,15 +1,18 @@
 ?start: statement+
 
 ?statement: open_call
+    | transition
     | click_by_class
     | move_by_class
     | capture_by_screen
+    | capture_by_hight
 
 open_call: "open"
+transition: "transition" "(" string ")"
 click_by_class: "click_by_class" "(" string ")"
 move_by_class: "move_by_class" "(" string ")"
 capture_by_screen: "capture_by_screen"
-
+capture_by_hight: "capture_by_hight" "(" string ")"
 
 string    : ESCAPED_STRING
 symbol    : WORD

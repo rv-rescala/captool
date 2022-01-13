@@ -14,6 +14,14 @@ def execute(request: CWWebDriver, order_name: str, grammar_path: str, order_path
             if request:
                 request.get(url=url)
 
+        def transition(self, token):
+            _url = token[0]
+            if _url == "URL":
+                _url = url
+            print(f"open: {_url}")
+            if request:
+                request.get(url=_url)
+
         def move_by_class(self, token):
             class_name = token[0]
             print(f"move_by_class: {class_name}")
@@ -35,6 +43,16 @@ def execute(request: CWWebDriver, order_name: str, grammar_path: str, order_path
                 fullpath = request.print_screen_by_window(__output_path, filename)
                 return fullpath
         
+        def capture_by_hight(self, token):
+            hight = token[0]
+            __output_path = f"{output_path}/{order_name}"
+            print(f"capture_by_screen: {__output_path}, {filename}, {hight}")
+            if request:
+                # mkdirs
+                os.makedirs(__output_path, exist_ok=True)
+                fullpath = request.print_screen_by_hight(hight, __output_path, filename)
+                return fullpath
+
         def symbol(self, token):
             return token[0].value
 

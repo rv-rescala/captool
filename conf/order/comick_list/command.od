@@ -3,4 +3,4 @@ move_by_class("gaevent-detail-notlogin-bookchapter btn")
 click_by_class("gaevent-detail-notlogin-bookchapter btn")
 move_by_class("x-book-chapter--target")
 move_by_class("book-chapter")
-capture_by_screen
+capture_by_hight("600")

@@ -11,6 +11,7 @@ if __name__ == "__main__":
     parser.add_argument('order', help='order')
     parser.add_argument('conf', help='conf')
     parser.add_argument('dataset', help='dataset')
+    parser.add_argument('-d', '--debug', action='store_true')
     args = parser.parse_args()
     print(args)
 
@@ -43,11 +44,15 @@ if __name__ == "__main__":
         input_list =  [row for row in reader]
     print(input_list)
 
-    request = CWWebDriver(binary_location=binary_location, executable_path=executable_path, execution_env=execution_env,  device=device, debug=debug)
-    #request = None
-    path_list = [execute(request=request, order_name=args.order, grammar_path=conf_lark, order_path=conf_order, url=i[0],output_path=output_path, filename=i[1]) for i in input_list]
-    request.close()
-    print(path_list)
+    if args.debug:
+        request = None
+        path_list = [execute(request=request, order_name=args.order, grammar_path=conf_lark, order_path=conf_order, url=i[0],output_path=output_path, filename=i[1]) for i in input_list]
+    else:
+        request = CWWebDriver(binary_location=binary_location, executable_path=executable_path, execution_env=execution_env,  device=device, debug=debug)
+        #request = None
+        path_list = [execute(request=request, order_name=args.order, grammar_path=conf_lark, order_path=conf_order, url=i[0],output_path=output_path, filename=i[1]) for i in input_list]
+        request.close()
+        print(path_list)
 
     #request.close
     # tool setting
