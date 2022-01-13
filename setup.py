@@ -16,14 +16,14 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     
 setup(
     name='captool',
-    version='0.0.4',
+    version='0.0.5',
     description='Core library for crawling and web scraping',
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='rv',
     author_email='yo-maruya@rescala.jp',
     keywords='python crawler scraping',
-    install_requires=['lark-parser'],
+    install_requires=['lark-parser', 'catswalk'],
     url='https://rescala.jp',
     license='MIT',
     packages=find_packages(exclude=('tests','catswalk')),
