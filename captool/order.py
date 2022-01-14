@@ -2,6 +2,7 @@ from lark import Lark, Transformer
 from catswalk.scraping.webdriver import CWWebDriver
 from catswalk.scraping.types.type_webdriver import *
 import os
+import time
 
 
 def execute(request: CWWebDriver, order_name: str, grammar_path: str, order_path: str, url:str, output_path:str, filename:str) -> str:
@@ -50,8 +51,23 @@ def execute(request: CWWebDriver, order_name: str, grammar_path: str, order_path
             if request:
                 # mkdirs
                 os.makedirs(__output_path, exist_ok=True)
-                fullpath = request.print_screen_by_hight(hight, __output_path, filename)
+                if request.execution_env == "local":
+                    fullpath = request.print_screen_by_hight(hight, __output_path, filename)
+                else:
+                    fullpath = request.print_screen_by_hight(hight, __output_path, filename, 2)
                 return fullpath
+
+
+        def wait_by_class(self, token):
+            class_name = token[0]
+            print(f"wait_by_class: {class_name}")
+            if request:
+                request.get_elem_by_class(class_name)
+
+        def wait_by_time(self, token):
+            _time = int(token[0])
+            print(f"wait_by_time: {_time}")
+            time.sleep(_time)
 
         def symbol(self, token):
             return token[0].value
