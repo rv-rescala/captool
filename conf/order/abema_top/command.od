@@ -1,0 +1,4 @@
+open
+click_by_class("sc-hYAvtR gWMxmC")
+move_by_class("sc-jeGTLq iZrhVm")
+capture_by_screen
