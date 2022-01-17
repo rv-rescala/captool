@@ -1,3 +1,4 @@
 open
-move_by_class("content_list_top")
+click_by_class_when_exist("sc-hYAvtR gWMxmC")
+move_by_class("sc-ehsPLh eiHTbE")
 capture_by_screen

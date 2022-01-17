@@ -35,6 +35,14 @@ def execute(request: CWWebDriver, order_name: str, grammar_path: str, order_path
             if request:
                 request.click_by_class_name(class_name=class_name)
 
+
+        def click_by_class_when_exist(self, token):
+            class_name = token[0]
+            print(f"click_by_class_when_exist: {class_name}")
+            if request:
+                request.click_by_class_name(class_name=class_name, check_exist=True)
+
+
         def capture_by_screen(self, token):
             __output_path = f"{output_path}/{order_name}"
             print(f"capture_by_screen: {__output_path}, {filename}")
@@ -56,7 +64,6 @@ def execute(request: CWWebDriver, order_name: str, grammar_path: str, order_path
                 else:
                     fullpath = request.print_screen_by_hight(hight, __output_path, filename, 2)
                 return fullpath
-
 
         def wait_by_class(self, token):
             class_name = token[0]
