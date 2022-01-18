@@ -5,6 +5,7 @@
 .pypirc
 dataset/
 release/
+aws_lambda_layer/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
