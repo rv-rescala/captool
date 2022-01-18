@@ -3,5 +3,5 @@
     "executable_path": "/Users/rv/ws/tools/chromedriver",
     "execution_env": "local",
     "output_path": "/Users/rv/ws/python/cptool/dataset/output",
-    "debug": true
+    "debug": false
 }

@@ -1,0 +1,5 @@
+open
+move_by_class("Components__EpisodeListItemContainer-sc-4hyt7h-8 kLiccn")
+move_by_class("Components__HeadingContainer-sc-4hyt7h-1 hhNuDE")
+move_by_class("Components__EpisodeListItemContainer-sc-4hyt7h-8 kLiccn")
+capture_by_screen

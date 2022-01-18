@@ -16,7 +16,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     
 setup(
     name='captool',
-    version='0.1.0',
+    version='0.1.4',
     description='Core library for crawling and web scraping',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -31,5 +31,10 @@ setup(
     project_urls={  # Optional
         'Bug Reports': 'https://github.com/rv-rescala/catsrequest/issues',
         'Source': 'https://github.com/rv-rescala/catsrequest'
+    },
+    entry_points={
+    "console_scripts":[
+        "captool = captool:main.main"
+        ]
     }
 )

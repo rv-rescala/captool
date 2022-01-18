@@ -1,0 +1,3 @@
+open
+move_by_class("item-container__items")
+capture_by_screen

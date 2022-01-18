@@ -1,0 +1,4 @@
+open
+click_by_class_when_exist("sc-hYAvtR gWMxmC")
+move_by_class("sc-ehsPLh eiHTbE")
+capture_by_screen

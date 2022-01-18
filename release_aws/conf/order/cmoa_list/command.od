@@ -1,0 +1,3 @@
+open
+move_by_class("content_list_top")
+capture_by_screen

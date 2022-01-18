@@ -6,7 +6,7 @@ import json
 import csv
 import os
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description='cp tool')
     parser.add_argument('order', help='order')
     parser.add_argument('conf', help='conf')
@@ -56,3 +56,6 @@ if __name__ == "__main__":
 
     #request.close
     # tool setting
+
+if __name__ == "__main__":
+    main()
