@@ -1,8 +1,5 @@
 open
 move_by_class("Components__EpisodeListContainer-sc-4hyt7h-7 ejFlQx")
-wait_by_time("1")
 move_by_class("Components__HeadingContainer-sc-4hyt7h-1 hhNuDE")
-wait_by_time("1")
 move_by_class("Components__EpisodeListContainer-sc-4hyt7h-7 ejFlQx")
-wait_by_time("1")
 capture_by_screen
