@@ -26,7 +26,7 @@ setup(
     install_requires=['lark-parser', 'catswalk'],
     url='https://rescala.jp',
     license='MIT',
-    packages=find_packages(exclude=('tests','catswalk')),
+    packages=find_packages(exclude=('tests','catswalk', 'regoogle')),
     python_requires='>=3.7',
     project_urls={  # Optional
         'Bug Reports': 'https://github.com/rv-rescala/catsrequest/issues',

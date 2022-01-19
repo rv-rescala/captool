@@ -15,7 +15,7 @@ from lambda_actor.types.type_actor_message import *
 
 BUCKET = "captool-gatsby"
 
-def s3_upload(local_fullpath):
+def s3_upload(local_fullpath, order):
     filename = local_fullpath.split("/")[-1]
     s3_client = boto3.client('s3')
     s3_client.upload_file(local_fullpath, BUCKET, f"dataset/output/{order}/{filename}")
@@ -54,16 +54,19 @@ def device(order) -> str:
         device = DEVICE.str_to_enum(j["device"])
     return device
 
-def lambda_handler(event, context):
-    try:
-        executor_trigger_message_str = event["Records"][0]["body"]
-        print(executor_trigger_message_str)
-        executor_trigger_message = ExecutorTriggerMessage.decode(executor_trigger_message_str[0])
-        request = CWWebDriver(execution_env=EXECUTION_ENV.AWS_LAMBDA, device = device(executor_trigger_message.task_groupid))
-    except:
+"""
         executor_trigger_message_str = None
         # for debug
         request = CWWebDriver(execution_env=EXECUTION_ENV.AWS_LAMBDA, device = device("unext_list"))
+"""
+
+
+def lambda_handler(event, context):
+    #try:
+    executor_trigger_message_str = event["Records"][0]["body"]
+    print(executor_trigger_message_str)
+    executor_trigger_message = ExecutorTriggerMessage.decode(executor_trigger_message_str)
+    request = CWWebDriver(execution_env=EXECUTION_ENV.AWS_LAMBDA, device = device(executor_trigger_message.task_groupid))
     
     def execution_func(task_message):
         output_path = f"/tmp"
@@ -74,6 +77,7 @@ def lambda_handler(event, context):
         print(f"execution_func: {url},{filename},{order_name}")
         path = execute(request=request, order_name=order_name, grammar_path=grammar_path(), order_path=order_path(order_name), url=url,output_path=output_path, filename=filename)
         print(f"execution_func: {path}")
+        s3_upload(path, order_name)
 
     def success_func(message):
         print(f"success_func: {message}")
