@@ -1,4 +1,4 @@
 open
 click_by_class_when_exist("sc-hYAvtR gWMxmC")
-move_by_class("sc-jeGTLq iZrhVm")
-capture_by_screen
+move_by_class_index("sc-jeGTLq iZrhVm", "2")
+capture_by_class_hight_index("sc-kIjwQX kcURYK", "1")

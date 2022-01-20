@@ -4,8 +4,11 @@
     | transition
     | click_by_class
     | move_by_class
+    | move_by_class_index
     | capture_by_screen
     | capture_by_hight
+    | capture_by_class_hight
+    | capture_by_class_hight_index
     | wait_by_class
     | wait_by_time
     | click_by_class_when_exist
@@ -14,16 +17,21 @@ open_call: "open"
 transition: "transition" "(" string ")"
 click_by_class: "click_by_class" "(" string ")"
 move_by_class: "move_by_class" "(" string ")"
+move_by_class_index: "move_by_class_index" "(" string "," string ")"
 capture_by_screen: "capture_by_screen"
 capture_by_hight: "capture_by_hight" "(" string ")"
+capture_by_class_hight: "capture_by_class_hight" "(" string ")"
+capture_by_class_hight_index: "capture_by_class_hight_index" "(" string "," string ")"
 wait_by_class: "wait_by_class" "(" string ")"
 wait_by_time: "wait_by_time" "(" string ")"
 click_by_class_when_exist: "click_by_class_when_exist" "(" string ")"
 
 string    : ESCAPED_STRING
 symbol    : WORD
+int: INT
 
 %import common.ESCAPED_STRING
+%import common.INT
 %import common.WORD
 %import common.WS
 %ignore WS

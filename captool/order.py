@@ -29,6 +29,14 @@ def execute(request: CWWebDriver, order_name: str, grammar_path: str, order_path
             if request:
                 request.move_to_element_by_class_name(class_name=class_name)
 
+        # move_by_class_index
+        def move_by_class_index(self, token):
+            class_name = token[0]
+            index = int(token[1])
+            print(f"move_by_class_index: {class_name}, {index}")
+            if request:
+                request.move_to_element_by_class_name(class_name=class_name, index=index)
+
         def click_by_class(self, token):
             class_name = token[0]
             print(f"click_by_class: {class_name}")
@@ -59,10 +67,29 @@ def execute(request: CWWebDriver, order_name: str, grammar_path: str, order_path
             if request:
                 # mkdirs
                 os.makedirs(__output_path, exist_ok=True)
-                if request.execution_env == "local":
-                    fullpath = request.print_screen_by_hight(hight, __output_path, filename)
-                else:
-                    fullpath = request.print_screen_by_hight(hight, __output_path, filename, 2)
+                fullpath = request.print_screen_by_hight(hight, __output_path, filename)
+                return fullpath
+
+        def capture_by_class_hight(self, token):
+            class_name = token[0]
+            __output_path = f"{output_path}/{order_name}"
+            print(f"capture_by_class_hight: {__output_path}, {filename}, {class_name}")
+            if request:
+                # mkdirs
+                os.makedirs(__output_path, exist_ok=True)
+                fullpath = request.print_screen_by_class_hight(class_name, __output_path, filename)
+                return fullpath
+
+        # capture_by_class_hight_index
+        def capture_by_class_hight_index(self, token):
+            class_name = token[0]
+            index = int(token[1])
+            __output_path = f"{output_path}/{order_name}"
+            print(f"capture_by_class_hight_index: {__output_path}, {filename}, {class_name}, {index}")
+            if request:
+                # mkdirs
+                os.makedirs(__output_path, exist_ok=True)
+                fullpath = request.print_screen_by_class_hight(class_name=class_name, path=__output_path, filename=filename, index=index)
                 return fullpath
 
         def wait_by_class(self, token):
