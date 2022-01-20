@@ -46,11 +46,11 @@ def main():
 
     if args.debug:
         request = None
-        path_list = [execute(request=request, order_name=args.order, grammar_path=conf_lark, order_path=conf_order, url=i[0],output_path=output_path, filename=i[1]) for i in input_list]
+        path_list = [execute(request=request, order_name=args.order, grammar_path=conf_lark, order_path=conf_order, url=i[1],output_path=output_path, filename=i[2]) for i in input_list]
     else:
         request = CWWebDriver(binary_location=binary_location, executable_path=executable_path, execution_env=execution_env,  device=device, debug=debug)
         #request = None
-        path_list = [execute(request=request, order_name=args.order, grammar_path=conf_lark, order_path=conf_order, url=i[0],output_path=output_path, filename=i[1]) for i in input_list]
+        path_list = [execute(request=request, order_name=args.order, grammar_path=conf_lark, order_path=conf_order, url=i[1],output_path=output_path, filename=i[2]) for i in input_list]
         request.close()
         print(path_list)
 
