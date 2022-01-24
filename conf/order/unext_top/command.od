@@ -1,3 +1,3 @@
 open
-move_by_class_index("MainSection__Container-sc-1fy4efc-0")
-capture_by_screen
+move_by_class_index("MainSection__Container-sc-1fy4efc-0","1")
+capture_by_class_hight_index("Button__Container-sc-1pgf28f-1 wAitV TitleModal__StyledNonStandardButton-sc-1r097l6-8 ydPgJ","1")

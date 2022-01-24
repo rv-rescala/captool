@@ -1,6 +1,4 @@
 open
-move_by_class("gaevent-detail-notlogin-bookchapter btn")
-click_by_class("gaevent-detail-notlogin-bookchapter btn")
-move_by_class("x-book-chapter--target")
-move_by_class("book-chapter")
+open
+move_by_class("book-info--title-icon")
 capture_by_screen

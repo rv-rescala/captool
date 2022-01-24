@@ -1,4 +1,5 @@
 open
 click_by_class_when_exist("sc-hYAvtR gWMxmC")
-move_by_class("sc-ehsPLh eiHTbE")
-capture_by_screen
+move_by_class("sc-eYRYis boUvnx")
+capture_by_class_hight_index("sc-skzID bIBVgu", "1")
+wait_by_time("100")
