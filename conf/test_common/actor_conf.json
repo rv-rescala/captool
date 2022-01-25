@@ -1,0 +1,11 @@
+{
+    "driver_trigger_q": "test_captool_driver_tigger_q.fifo",
+    "executor_trigger_q": "test_captool_executor_trigger_q.fifo",
+    "executor_task_q":  "test_captool_executor_task_q.fifo",
+    "executor_key":  "captool",
+    "executor_concurrency":  10,
+    "max_retry":  3,
+    "max_lambda_execution_time":  600,
+    "trigger_file_bucket": "test-captool-gatsby",
+    "trigger_file_prefix": "dataset/input"
+}

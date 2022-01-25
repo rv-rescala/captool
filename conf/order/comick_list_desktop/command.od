@@ -1,4 +1,4 @@
 open
 open
 move_by_class("book-info--title-icon")
-capture_by_screen
+capture_by_hight("600")

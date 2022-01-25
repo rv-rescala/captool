@@ -6,14 +6,13 @@ from lambda_actor.actor_driver import *
 from lambda_actor.actor_executor import *
 from regoogle.drive import *
 
-bucket = "captool-gatsby"
+bucket = "test-captool-gatsby"
 prefix = "conf"
 actor_conf_file = "actor_conf.json"
-MANUAL_TRIGGER_NAME = ["comick_top", "comick_list"]
+MANUAL_TRIGGER_NAME = ["cmoa_top"]
 MANUAL = False
 
-KEY_S3_PATH = "conf/google/test_rv_key.json"
-ROOT_PARENTS = "1OCApnIcgg7AmT5qstq-xjiGmcVs9GpLY"
+GDRIVE_CONF_PATH = "conf/google/gdrive.json"
 
 def get_id_by_key(gdrive, key: str):
     kis = gdrive.list_key_id()
@@ -25,10 +24,19 @@ def get_id_by_key(gdrive, key: str):
             return id
     return None
 
-def gdrive_init(parents):
-    local_key = "/tmp/gdrive_key.json"
+def gdrive_init():
+    # gconf
+    gconf = "/tmp/gdrive.json"
     s3_client = boto3.client('s3')
-    s3_client.download_file(bucket, KEY_S3_PATH, "/tmp/gdrive_key.json")
+    s3_client.download_file(bucket, GDRIVE_CONF_PATH, "/tmp/gdrive.json")
+    
+    with open(gconf, 'r') as f:
+        gconf_j = json.load(f)
+        key_name = gconf_j["key"]
+        parents = gconf_j["folder"]
+        print(f"gdrive_init, {key_name}, {parents}")
+        local_key = f"/tmp/{key_name}"
+        s3_client.download_file(bucket, f"conf/google/{key_name}", f"/tmp/{key_name}")
     return GoogleDrive(local_key, parents)
 
 def gdrive_folder_init(gdrive, key):
@@ -50,8 +58,8 @@ def lambda_handler(event, context):
             print(trigger_name)
             print("event_source from s3 end")
             # gdrive init
-            gdrive = gdrive_init(ROOT_PARENTS)
-            parents = gdrive_folder_init(gdrive, trigger_name)
+            #gdrive = gdrive_init()
+            #parents = gdrive_folder_init(gdrive, trigger_name)
             # init func
             actor_driver_starter(bucket=bucket, prefix=prefix, actor_conf_file=actor_conf_file, trigger_name=trigger_name)
         elif event_source == "aws:sqs":

@@ -1,4 +1,4 @@
 open
 click_by_class_when_exist("sc-hYAvtR gWMxmC")
 move_by_class_index("sc-eJMPIT cwRhst", "1")
-capture_by_class_hight_index("sc-cipXqI rVvZl sc-leFFbm kpMLxo", "1")
+capture_by_hight("600")
