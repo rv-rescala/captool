@@ -23,7 +23,7 @@ setup(
     author='rv',
     author_email='yo-maruya@rescala.jp',
     keywords='python crawler scraping',
-    install_requires=['lark-parser', 'catswalk', 'regoogle'],
+    install_requires=['lark-parser', 'catswalk2', 'regoogle'],
     url='https://rescala.jp',
     license='MIT',
     packages=find_packages(exclude=('tests','catswalk')),
