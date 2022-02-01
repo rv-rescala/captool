@@ -1,0 +1,3 @@
+open
+move_by_class("heading heading--sort")
+capture_by_hight("1200")

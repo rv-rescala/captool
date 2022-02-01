@@ -15,8 +15,8 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
     
 setup(
-    name='captool',
-    version='0.2.2',
+    name='captool2',
+    version='0.0.1',
     description='Core library for crawling and web scraping',
     long_description=long_description,
     long_description_content_type='text/markdown',

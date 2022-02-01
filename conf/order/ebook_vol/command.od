@@ -1,0 +1,3 @@
+open
+move_by_class("book-item book-item--disp-list book-item--btn-include-double")
+capture_by_hight("900")
