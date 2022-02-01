@@ -16,7 +16,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     
 setup(
     name='captool2',
-    version='0.0.1',
+    version='0.0.2',
     description='Core library for crawling and web scraping',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -26,7 +26,7 @@ setup(
     install_requires=['lark-parser', 'catswalk2', 'regoogle'],
     url='https://rescala.jp',
     license='MIT',
-    packages=find_packages(exclude=('tests','catswalk')),
+    packages=find_packages(exclude=('tests','catswalk2')),
     python_requires='>=3.7',
     project_urls={  # Optional
         'Bug Reports': 'https://github.com/rv-rescala/catsrequest/issues',
