@@ -1,0 +1,3 @@
+open
+move_by_class("genre-list")
+capture_by_class_hight_index("meta","1")
